@@ -1,8 +1,12 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+
+import { Link } from "react-router-dom";
 
 const Toys = ({ toy }) => {
   const {
     name,
+    _id,
     price,
     rating,
     available_quantity,
@@ -54,8 +58,16 @@ const Toys = ({ toy }) => {
           <p className="flex justify-end">Price: ${price}</p>
         </div>
 
-        <div className="card-actions -mb-6 justify-end">
-          <button className="btn btn-accent text-white">Details</button>
+        <div className="card-actions -mb-6 justify-between items-center">
+          {/* The button to open modal */}
+          <h4 className="text-lg font-normal">Seller: {seller_name}</h4>
+          <Link to={`/toydetails/${_id}`}>
+          <label className="btn btn-accent text-white">
+            Details
+          </label>
+
+          </Link>
+         
         </div>
       </div>
     </div>
