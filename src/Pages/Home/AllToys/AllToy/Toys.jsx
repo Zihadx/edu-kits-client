@@ -18,12 +18,12 @@ const Toys = ({ toy }) => {
   return (
     <div className="card w-full h-full bg-base-100 shadow-xl mt-8">
       <figure>
-        <img className="h-72" src={image_url} alt="Shoes" />
+        <img className="h-72 hover:transform hover:scale-110 transition duration-700 ease-in-out" src={image_url} alt="Shoes" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
           {name}
-          <div className="badge badge-secondary">{subcategory}</div>
+          <div className="badge badge-secondary bg-[#f06d4f]">{subcategory}</div>
         </h2>
         <div className="flex">
           <div className="rating rating-sm flex items-center">

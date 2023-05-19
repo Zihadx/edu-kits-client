@@ -10,8 +10,9 @@ const AllToys = () => {
     },[])
     return (
         <div className="mt-16">
-            <h1 className="text-5xl font-bold text-center">All Toys {toys.length}</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <h1 className="text-5xl font-bold text-center">All Toys</h1>
+            <p className="text-center mt-4"><small>Playful Minds is a company that specializes in creating educational toys and games<br /> for children.</small></p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 {
                     toys.map(toy => <Toys
                     key={toy._id}
