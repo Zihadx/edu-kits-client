@@ -1,3 +1,4 @@
+import AllToys from "../AllToys/AllToy/AllToys";
 import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
 
@@ -7,6 +8,7 @@ const Home = () => {
             <h2 className="text-5xl">this is home</h2>
             <Banner></Banner>
             <Gallery></Gallery>
+            <AllToys></AllToys>
         </div>
     );
 };
