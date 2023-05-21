@@ -24,9 +24,9 @@ const ToyDetails = () => {
     seller_name,
   } = details;
   return (
-    <div className="bg-slate-100 mx-4 md:mx-24 py-8 px-4 md:px-12 rounded-lg">
+    <div className="bg-slate-100 mx-4 md:mx-24 py-8 px-4 md:px-12 rounded-lg mt-12">
       <h1 className="text-5xl font-bold text-center">
-        Toy Details: <span className="text-accent">{name}</span>
+        Toy Details: <span className="text-[#f06d4f]">{name}</span>
       </h1>
       <div className="text-center">
         <img
