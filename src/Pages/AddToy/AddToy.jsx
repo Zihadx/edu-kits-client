@@ -49,7 +49,7 @@ const AddToy = () => {
     })
   };
   return (
-    <div className="px-4 md:px-24 mt-8">
+    <div className="px-4 md:px-12 lg-px-24 mt-8">
       <div className="card-body bg-base-200 rounded-xl md:12 lg:p-16">
         <form onSubmit={handleAddToy}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

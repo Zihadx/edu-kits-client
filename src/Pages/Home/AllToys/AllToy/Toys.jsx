@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+import { faArrowAltCircleDown, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Link } from "react-router-dom";
 
@@ -63,7 +65,7 @@ const Toys = ({ toy }) => {
           <h4 className="text-lg font-normal">Seller: {seller_name}</h4>
           <Link to={`/toydetails/${_id}`}>
           <label className="btn btn-accent text-white">
-            Details
+          <FontAwesomeIcon className="text-lg" icon={faArrowRight} />
           </label>
 
           </Link>
