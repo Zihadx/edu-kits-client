@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 
 const Registration = () => {
-  const handleRegister = (event) => {
-    const { createUser } = useContext(AuthContext);
-
+  const { createUser } = useContext(AuthContext);
+  const handleSignUp = (event) => {
     event.preventDefault();
-    console.log(handleRegister);
+
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -28,14 +27,14 @@ const Registration = () => {
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 md:ml-14">
           <div className="card-body">
             <h1 className="text-5xl font-bold text-center">Register</h1>
-            <form onSubmit={handleRegister}>
+            <form onSubmit={handleSignUp}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="Name"
+                  placeholder="name"
                   name="name"
                   className="input input-bordered"
                 />
@@ -76,8 +75,8 @@ const Registration = () => {
               </div>
             </form>
             <p className="my-4 text-center">
-              Already have an account?{" "}
-              <Link to="/login" className="font-bold text-[#f06d4f]">
+              New to this?{" "}
+              <Link to="/registration" className="font-bold text-[#f06d4f]">
                 Login
               </Link>
             </p>
