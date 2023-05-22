@@ -9,11 +9,12 @@ const Navbar = () => {
         <Link>All Toys</Link>
       </li>
       <li>
-        <Link>My Toys</Link>
+        <Link to="addtoy">Add Toys</Link>
       </li>
       <li>
-        <Link>Add Toys</Link>
+        <Link to="/mytoy">My Toys</Link>
       </li>
+
       <li>
         <Link>Blog</Link>
       </li>
@@ -48,15 +49,24 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case">
-            <img className="h-14 w-14 mr-2" src='https://i.ibb.co/ZM3x58Q/Pngtree-technology-and-science-logo1111111111111111-4100449.jpg' alt="" />
-            <h1 className="font-bold text-4xl">Edu<span className="text-[#f06d4f] font-extrabold">Kits</span></h1>
+            <img
+              className="h-14 w-14 mr-2"
+              src="https://i.ibb.co/ZM3x58Q/Pngtree-technology-and-science-logo1111111111111111-4100449.jpg"
+              alt=""
+            />
+            <h1 className="font-bold text-4xl">
+              Edu<span className="text-[#f06d4f] font-extrabold">Kits</span>
+            </h1>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
-          <Link className="font-bold mr-3 btn btn-accent text-white" to="/login">
+          <Link
+            className="font-bold mr-3 btn btn-accent text-white"
+            to="/login"
+          >
             Login
           </Link>
         </div>
