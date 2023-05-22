@@ -1,15 +1,13 @@
 /* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEdit,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const SingleMyToy = ({ toy }) => {
   const {
+    _id,
     name,
     seller_name,
-    email,
     rating,
     price,
     available_quantity,
@@ -20,9 +18,9 @@ const SingleMyToy = ({ toy }) => {
     <>
       <tr>
         <td>
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 w-20">
             <div className="avatar">
-              <div className="mask mask-squircle w-12 h-12">
+              <div className="mask rounded-md w-16 h-16">
                 <img src={image_url} alt="Avatar Tailwind CSS Component" />
               </div>
             </div>
@@ -36,13 +34,16 @@ const SingleMyToy = ({ toy }) => {
         <td>{seller_name}</td>
         <td>{price}</td>
         <td>{available_quantity}</td>
-        <td>{email}</td>
-        <td>{rating}</td>
+        <td className="ps-6">{rating}</td>
         <td>
-          <FontAwesomeIcon className="text-lg text-accent" icon={faEdit} />
+          <Link to={`/updateToy/${_id}`} className="ps-1">
+            <FontAwesomeIcon className="text-lg text-accent" icon={faEdit} />
+          </Link>
         </td>
         <td>
-          <FontAwesomeIcon className="text-lg text-error" icon={faTrash} />
+          <button className="ps-4">
+            <FontAwesomeIcon className="text-lg text-error" icon={faTrash} />
+          </button>
         </td>
       </tr>
     </>

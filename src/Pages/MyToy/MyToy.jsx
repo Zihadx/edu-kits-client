@@ -27,7 +27,6 @@ const MyToy = () => {
               <th>Seller</th>
               <th>Price</th>
               <th>Quantity</th>
-              <th>User email</th>
               <th>Rating</th>
               <th>Edit</th>
               <th>Action</th>
