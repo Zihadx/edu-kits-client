@@ -75,8 +75,8 @@ const Registration = () => {
               </div>
             </form>
             <p className="my-4 text-center">
-              New to this?{" "}
-              <Link to="/registration" className="font-bold text-[#f06d4f]">
+              Already have an account?{" "}
+              <Link to="/login" className="font-bold text-[#f06d4f]">
                 Login
               </Link>
             </p>
