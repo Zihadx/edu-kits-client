@@ -26,7 +26,7 @@ const Banner = () => {
           <a href="#slide4" className="btn btn-circle mr-5">
             ❮
           </a>
-          <a href="#slide2" className="btn btn-accent btn-circle">
+          <a href="#slide2" className="btn btn-accent text-white btn-circle">
             ❯
           </a>
         </div>
@@ -53,7 +53,7 @@ const Banner = () => {
           <a href="#slide1" className="btn btn-circle mr-5">
             ❮
           </a>
-          <a href="#slide3" className="btn btn-accent btn-circle">
+          <a href="#slide3" className="btn btn-accent text-white btn-circle">
             ❯
           </a>
         </div>
@@ -80,7 +80,7 @@ const Banner = () => {
           <a href="#slide2" className="btn btn-circle mr-5">
             ❮
           </a>
-          <a href="#slide4" className="btn btn-accent btn-circle">
+          <a href="#slide4" className="btn btn-accent text-white btn-circle">
             ❯
           </a>
         </div>
@@ -107,7 +107,7 @@ const Banner = () => {
           <a href="#slide3" className="btn btn-circle mr-5">
             ❮
           </a>
-          <a href="#slide1" className="btn btn-accent btn-circle">
+          <a href="#slide1" className="btn btn-accent text-white btn-circle">
             ❯
           </a>
         </div>

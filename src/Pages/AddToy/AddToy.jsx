@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useEffect } from "react";
-
+import Swal from 'sweetalert2'
 const AddToy = () => {
   const handleAddToy = (event) => {
     event.preventDefault();
@@ -38,6 +37,15 @@ const AddToy = () => {
     .then(res => res.json())
     .then(data => {
       console.log(data)
+      if(data.insertedId){
+        Swal.fire({
+          title: 'Success!',
+          text: 'Toy added successfully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+        
+      }
     })
   };
   return (
