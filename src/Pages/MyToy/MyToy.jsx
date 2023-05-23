@@ -38,6 +38,8 @@ const MyToy = () => {
                 toys.map(toy=> <SingleMyToy 
                     key={toy._id}
                     toy={toy}
+                    toys={toys}
+                    setToys={setToys}
                     ></SingleMyToy>)
             }
           </tbody>
