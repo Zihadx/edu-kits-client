@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateToy = () => {
   const toy = useLoaderData();
@@ -12,15 +13,63 @@ const UpdateToy = () => {
     available_quantity,
     subcategory,
     image_url,
-    description
+    description,
   } = toy;
+
+  const handleUpdateToy = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.title.value;
+    const seller_name = form.name.value;
+    const email = form.email.value;
+    const rating = form.rating.value;
+    const price = form.price.value;
+    const available_quantity = form.quantity.value;
+    const subcategory = form.category.value;
+    const image_url = form.photo.value;
+    const description = form.description.value;
+
+    const updatedToy = {
+      name,
+      seller_name,
+      email,
+      rating,
+      price,
+      available_quantity,
+      subcategory,
+      image_url,
+      description,
+    };
+    console.log(updatedToy);
+
+    fetch(`http://localhost:5000/toys/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedToy),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Success!",
+            text: "Toy updated successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      });
+  };
+
   return (
     <div className="px-4 md:px-12 lg-px-24 mt-8">
       <h1 className="text-5xl font-bold text-[#f06d4f] text-center my-8">
         Update: {name}
       </h1>
       <div className="card-body bg-base-200 rounded-xl md:12 lg:p-16">
-        <form>
+        <form onSubmit={handleUpdateToy}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="form-control">
               <label className="label">
@@ -38,7 +87,12 @@ const UpdateToy = () => {
               <label className="label">
                 <span className="label-text font-bold">Seller Name</span>
               </label>
-              <input type="text" name="name" defaultValue={seller_name} className="input input-bordered" />
+              <input
+                type="text"
+                name="name"
+                defaultValue={seller_name}
+                className="input input-bordered"
+              />
             </div>
             <div className="form-control">
               <label className="label">
