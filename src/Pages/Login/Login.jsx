@@ -1,11 +1,14 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const Login = () => {
-
-  const {signIn} = useContext(AuthContext)
-
+  const { signIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+  console.log(from)
   const handleLogin = (event) => {
     event.preventDefault();
     console.log(handleLogin);
@@ -14,11 +17,18 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
     signIn(email, password)
-    .then(result => {
-      const user = result.user
-      console.log(user)
-    })
-    .catch(error => console.log(error))
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          title: "Success!",
+          text: "Login successfully",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <div className="hero min-h-screen">
@@ -44,7 +54,7 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   placeholder="password"
                   name="password"
                   className="input input-bordered"
@@ -63,7 +73,7 @@ const Login = () => {
                 />
               </div>
             </form>
-            <p className="my-4 text-center">
+            <p className="mt-4 text-center">
               New to this?{" "}
               <Link to="/registration" className="font-bold text-[#f06d4f]">
                 Register

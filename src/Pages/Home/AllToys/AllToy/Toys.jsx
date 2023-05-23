@@ -16,18 +16,18 @@ const Toys = ({ toy }) => {
     image_url,
     subcategory,
     seller_name,
-  } = toy;
+  } = toy || {};
   return (
     <div className="card w-full h-full bg-base-100 shadow-xl mt-8">
       <figure>
         <img className="h-72 hover:transform hover:scale-110 transition duration-700 ease-in-out" src={image_url} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
+        <h2 className="card-title mb-3">
           {name}
           <div className="badge badge-secondary bg-[#f06d4f]">{subcategory}</div>
         </h2>
-        <div className="flex">
+        <div className="flex mb-3">
           <div className="rating rating-sm flex items-center">
             <input
               type="radio"
@@ -64,9 +64,9 @@ const Toys = ({ toy }) => {
           {/* The button to open modal */}
           <h4 className="text-lg font-normal">Seller: {seller_name}</h4>
           <Link to={`/toydetails/${_id}`}>
-          <label className="btn btn-accent text-white">
-          <FontAwesomeIcon className="text-lg" icon={faArrowRight} />
-          </label>
+          <button className=" text-[#f06d4f]">
+          <FontAwesomeIcon className="text-2xl font-bold " icon={faArrowRight} />
+          </button>
 
           </Link>
          

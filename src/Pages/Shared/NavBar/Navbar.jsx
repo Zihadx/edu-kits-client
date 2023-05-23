@@ -6,8 +6,8 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     logOut()
-    .then(() => {})
-    .catch(error => console.log(error))
+      .then(() => {})
+      .catch((error) => console.log(error));
   };
 
   const navItems = (
@@ -16,17 +16,21 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link>All Toys</Link>
+        <Link to="/alltoy">All Toys</Link>
       </li>
-      <li>
-        <Link to="addtoy">Add Toys</Link>
-      </li>
-      <li>
-        <Link to="/mytoy">My Toys</Link>
-      </li>
+      {user && (
+        <>
+          <li>
+            <Link to="addtoy">Add Toys</Link>
+          </li>
+          <li>
+            <Link to="/mytoy">My Toys</Link>
+          </li>
+        </>
+      )}
 
       <li>
-        <Link>Blog</Link>
+        <Link to="/blog">Blog</Link>
       </li>
     </>
   );
@@ -36,7 +40,7 @@ const Navbar = () => {
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
-              <svg
+              {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
                 fill="none"
@@ -49,7 +53,7 @@ const Navbar = () => {
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
                 />
-              </svg>
+              </svg> */}
             </label>
             <ul
               tabIndex={0}
@@ -87,6 +91,11 @@ const Navbar = () => {
             >
               Login
             </Link>
+          )}
+          {user && (
+            <div>
+              <img src={user.photoURL} alt="" />
+            </div>
           )}
         </div>
       </div>

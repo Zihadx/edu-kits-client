@@ -1,9 +1,15 @@
+/* eslint-disable no-unused-vars */
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import Swal from "sweetalert2";
 
 const Registration = () => {
   const { createUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
   const handleSignUp = (event) => {
     event.preventDefault();
 
@@ -11,12 +17,20 @@ const Registration = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password);
+    const photo = form.photo.value
+    console.log(name, email, password,photo);
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
+        Swal.fire({
+          title: "Success!",
+          text: "Login successfully",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
   };
@@ -52,10 +66,21 @@ const Registration = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text">Photo Url</span>
                 </label>
                 <input
                   type="text"
+                  placeholder="Photo"
+                  name="photo"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  type="password"
                   placeholder="password"
                   name="password"
                   className="input input-bordered"
@@ -74,13 +99,14 @@ const Registration = () => {
                 />
               </div>
             </form>
-            <p className="my-4 text-center">
+            <p className="mt-4 text-center">
               Already have an account?{" "}
               <Link to="/login" className="font-bold text-[#f06d4f]">
                 Login
               </Link>
             </p>
           </div>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>
