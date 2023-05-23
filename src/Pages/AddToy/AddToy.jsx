@@ -27,7 +27,7 @@ const AddToy = () => {
     };
     console.log(addNewToy);
 
-    fetch('http://localhost:5000/toys',{
+    fetch('https://toys-zone-server-kappa.vercel.app/toys',{
       method: 'POST',
       headers: {
         'content-type': 'application/json'

@@ -42,7 +42,7 @@ const UpdateToy = () => {
     };
     console.log(updatedToy);
 
-    fetch(`http://localhost:5000/toys/${_id}`, {
+    fetch(`https://toys-zone-server-kappa.vercel.app/toys/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

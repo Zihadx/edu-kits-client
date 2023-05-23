@@ -28,7 +28,7 @@ const SingleMyToy = ({ toy, toys, setToys }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toys/${_id}`, {
+        fetch(`https://toys-zone-server-kappa.vercel.app/toys/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

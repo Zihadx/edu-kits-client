@@ -6,7 +6,7 @@ const MyToy = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoy/${user?.email}`)
+    fetch(`https://toys-zone-server-kappa.vercel.app/mytoy/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
