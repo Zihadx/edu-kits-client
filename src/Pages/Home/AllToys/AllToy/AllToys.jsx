@@ -9,7 +9,7 @@ const AllToys = () => {
   const [isLoading, setIsLoading] = useState(true); // Add loading state
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toys`)
+    fetch(`https://toys-zone-server-kappa.vercel.app/toys`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
@@ -81,7 +81,10 @@ const AllToys = () => {
       {/* Show loading indicator while fetching data */}
       {isLoading ? (
         <div className="flex justify-center mt-8">
-          <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full border-t-transparent text-blue-600" role="status">
+          <div
+            className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full border-t-transparent text-blue-600"
+            role="status"
+          >
             <span className="sr-only">Loading...</span>
           </div>
         </div>

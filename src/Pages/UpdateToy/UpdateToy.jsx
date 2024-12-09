@@ -20,7 +20,7 @@ const UpdateToy = () => {
 
   useEffect(() => {
     // Fetch the toy details when the component is mounted
-    fetch(`http://localhost:5000/toys/${id}`)
+    fetch(`https://toys-zone-server-kappa.vercel.app/toys/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -104,7 +104,7 @@ const UpdateToy = () => {
       const updatedToy = { ...formData };
       console.log(updatedToy);
 
-      fetch(`http://localhost:5000/toys/${id}`, {
+      fetch(`https://toys-zone-server-kappa.vercel.app/toys/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -192,12 +192,12 @@ const UpdateToy = () => {
                 type="text"
                 name="email"
                 value={formData.email}
-                onChange={handleInputChange} 
+                onChange={handleInputChange}
                 className={`input input-bordered w-full ${
                   errors.email ? "input-error" : ""
                 }`}
                 placeholder="Email"
-                readOnly 
+                readOnly
               />
               {errors.email && (
                 <span className="text-red-500 text-sm">{errors.email}</span>

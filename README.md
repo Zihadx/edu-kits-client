@@ -10,5 +10,5 @@ Live Link: https://toys-zone-a93cf.web.app/
 ### Page Login
 - In this page added a login form
 - Here you need email and password.
-### All toy page
+### All toy page and My Toy Page
 - This is a private route. Only logged user can see this route on navbar.

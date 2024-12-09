@@ -22,7 +22,7 @@ const NewArrival = () => {
     });
 
     // Fetch toy data
-    fetch("http://localhost:5000/toys")
+    fetch("https://toys-zone-server-kappa.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => setNewArrivals(data));
   }, [auth]);

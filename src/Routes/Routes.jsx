@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             <ToyDetails></ToyDetails>
           </PrivateRout>
         ),
-        loader: () => fetch(`http://localhost:5000/toys`),
+        loader: () => fetch(`https://toys-zone-server-kappa.vercel.app/toys`),
       },
       {
         path: "/addtoy",
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
         path: "/updateToy/:id",
         element: <UpdateToy></UpdateToy>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/${params.id}`),
+          fetch(`https://toys-zone-server-kappa.vercel.app/${params.id}`),
       },
     ],
   },

@@ -7,7 +7,7 @@ const Toysection = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://toys-zone-server-kappa.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => setToys(data.slice(0, 4))); // Limit to 4 toys
   }, []);
@@ -36,7 +36,9 @@ const Toysection = () => {
     <div className="mt-16 px-4 md:px-24">
       <h1 className="text-5xl font-bold text-center">Explore Our Toys</h1>
       <p className="text-center mt-4">
-        <small>Browse through our amazing educational toys designed for kids!</small>
+        <small>
+          Browse through our amazing educational toys designed for kids!
+        </small>
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mt-8 ">
@@ -51,13 +53,17 @@ const Toysection = () => {
               className="w-full h-56 object-cover"
             />
             <div className="p-4">
-              <h2 className="text-xl font-semibold text-gray-800">{toy.name}</h2>
+              <h2 className="text-xl font-semibold text-gray-800">
+                {toy.name}
+              </h2>
               <p className="text-sm text-gray-500 mt-2">{toy.subcategory}</p>
               <p className="text-sm text-gray-600 mt-4">
                 {toy.description.substring(0, 100)}...
               </p>
               <div className="flex justify-between items-center mt-4">
-                <span className="text-lg font-bold text-gray-900">${toy.price}</span>
+                <span className="text-lg font-bold text-gray-900">
+                  ${toy.price}
+                </span>
                 <span className="text-sm text-yellow-500">⭐ {toy.rating}</span>
               </div>
               <button
