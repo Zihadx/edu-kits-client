@@ -114,7 +114,7 @@ const Banner = () => {
           ></div>
 
           <motion.div
-            className="absolute flex items-center h-full left-0 right-0 top-0 px-8 md:px-24 w-1/2"
+            className="absolute flex items-center h-full left-0 right-0 top-0 px-8 md:px-24 md:w-1/2"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
@@ -125,7 +125,7 @@ const Banner = () => {
           >
             <div className="space-y-6">
               <motion.h1
-                className="text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-white"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white"
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: 50, opacity: 0 }}

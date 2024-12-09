@@ -1,9 +1,10 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { faArrowAltCircleDown, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
+import { AuthContext } from "../../../../Providers/AuthProviders";
 
 const Toys = ({ toy }) => {
   const {
@@ -11,19 +12,16 @@ const Toys = ({ toy }) => {
     _id,
     price,
     rating,
-    available_quantity,
-    description,
     image_url,
     subcategory,
     seller_name,
   } = toy || {};
 
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const isLoggedIn = localStorage.getItem("userToken");
-
   const handleDetailsClick = () => {
-    if (!isLoggedIn) {
+    if (!user) {
       Swal.fire({
         title: "You need to log in!",
         text: "Please log in to view more details.",
@@ -90,11 +88,9 @@ const Toys = ({ toy }) => {
 
         <div className="card-actions -mb-6 justify-between items-center">
           <h4 className="text-lg font-normal">Seller: {seller_name}</h4>
-          <Link to="#" onClick={handleDetailsClick}>
-            <button className="text-[#f06d4f]">
-              <FontAwesomeIcon className="text-2xl font-bold" icon={faArrowRight} />
-            </button>
-          </Link>
+          <button onClick={handleDetailsClick}>
+            <FontAwesomeIcon className="text-2xl font-bold text-[#f06d4f]" icon={faArrowRight} />
+          </button>
         </div>
       </div>
     </div>

@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 const Toysection = () => {
   const [toys, setToys] = useState([]);
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -12,10 +14,10 @@ const Toysection = () => {
       .then((data) => setToys(data.slice(0, 4))); // Limit to 4 toys
   }, []);
 
-  const isLoggedIn = localStorage.getItem("userToken");
+ 
 
   const handleDetailsClick = (toyId) => {
-    if (!isLoggedIn) {
+    if (!user) {
       Swal.fire({
         title: "You need to log in!",
         text: "Please log in to view more details.",

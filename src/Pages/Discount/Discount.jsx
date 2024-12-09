@@ -57,7 +57,7 @@ const Discount = () => {
             <p className="mb-5 text-lg text-white">Offer Expires In</p>
 
             {/* Countdown Timer */}
-            <div className="grid grid-flow-col gap-6 md:gap-8 text-center">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-8 text-center">
               <motion.div
                 className="flex flex-col p-4 bg-[#eb4d2a] rounded-md text-neutral-content justify-center items-center transform hover:scale-105 transition-all duration-300 shadow-lg"
                 initial={{ opacity: 0, y: 50 }}

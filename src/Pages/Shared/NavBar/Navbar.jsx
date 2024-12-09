@@ -4,7 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo/toyzone.png";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2"; 
-import avatar from "../../../assets/image/avtar.png"
+import avatar from "../../../assets/image/avtar.png";
+
+// Import the hamburger icon from Heroicons
+import { Bars3Icon } from '@heroicons/react/24/solid';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -103,7 +106,13 @@ const Navbar = () => {
     >
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden"></label>
+          <label
+            tabIndex={0}
+            className="btn btn-ghost lg:hidden p-2 rounded-md hover:bg-gray-200"
+          >
+            {/* Hamburger Icon (Heroicons) */}
+            <Bars3Icon className="h-6 w-6 text-gray-800" />
+          </label>
           <ul
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
@@ -111,7 +120,7 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case">
+        <Link to="/" className="normal-case flex justify-center items-center">
           <img className="h-12 w-12" src={logo} alt="logo" />
           <h1 className="font-bold text-2xl">
             Toy<span className="text-[#f06d4f] font-extrabold">Zone</span>

@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="md:flex justify-between items-center bg-[#f06d4f] p-4 md:p-24 mt-12 h-[490px]">
+    <div className="md:flex justify-between items-center bg-[#f06d4f] p-4 md:p-24 mt-12 md:h-[490px]">
       <div className="flex-col lg:flex-row-reverse space-y-6">
         <h1 className="text-4xl lg:text-5xl font-bold text-gray-100">
           Education <br /> through play!
@@ -14,7 +14,7 @@ const About = () => {
       </div>
       <div>
         <img
-          className="h-[400px] flex justify-end rounded-2xl md:rounded-bl-full mt-4"
+          className="h-[400px] flex justify-end rounded-2xl rounded-bl-full mt-4 mx-auto"
           src="https://i.ibb.co/QHpqXf1/joshua-fernandez-W7-BMYXF9bo0-unsplash.jpg"
           alt=""
         />

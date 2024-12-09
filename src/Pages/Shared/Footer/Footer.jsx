@@ -3,7 +3,7 @@ import logo from "../../../assets/logo/toyzone.png"
 const Footer = () => {
   return (
     <footer className="mt-12 bg-slate-900 text-white">
-      <div className="footer p-8 md:px-24 flex items-center justify-between">
+      <div className="footer p-8 md:px-24 items-center justify-between grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <img
             className="w-20 h-20"
