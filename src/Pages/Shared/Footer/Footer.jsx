@@ -1,12 +1,14 @@
+import logo from "../../../assets/logo/toyzone.png"
+
 const Footer = () => {
   return (
     <footer className="mt-12 bg-slate-900 text-white">
       <div className="footer p-8 md:px-24 flex items-center justify-between">
         <div>
           <img
-            className="w-10 h-10 rounded-xl"
-            src="https://i.ibb.co/ZM3x58Q/Pngtree-technology-and-science-logo1111111111111111-4100449.jpg"
-            alt=""
+            className="w-20 h-20"
+            src={logo}
+            alt="logo"
           />
           <p className="text-xl">
             Education Kits

@@ -2,7 +2,6 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
-import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import Swal from "sweetalert2";
 
 const Registration = () => {
@@ -10,6 +9,7 @@ const Registration = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
+
   const handleSignUp = (event) => {
     event.preventDefault();
 
@@ -17,96 +17,83 @@ const Registration = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photo = form.photo.value
-    console.log(name, email, password,photo);
 
     createUser(email, password)
-      .then((result) => {
-        const user = result.user;
-        // console.log(user);
+      .then(() => {
         Swal.fire({
-          title: "Success!",
-          text: "Login successfully",
+          title: "Registration Successful!",
+          text: "Welcome to the platform!",
           icon: "success",
-          confirmButtonText: "Ok",
+          confirmButtonText: "Proceed",
         });
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.error(error);
+        Swal.fire({
+          title: "Registration Failed",
+          text: "Something went wrong. Please try again.",
+          icon: "error",
+          confirmButtonText: "Retry",
+        });
+      });
   };
+
   return (
-    <div className="hero min-h-screen">
-      <div className="hero-content flex-col lg:flex-row">
-        <div className="w-1/2 md:mr-16">{/* <img src={image} alt="" /> */}</div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 md:ml-14">
-          <div className="card-body">
-            <h1 className="text-5xl font-bold text-center">Register</h1>
-            <form onSubmit={handleSignUp}>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="name"
-                  name="name"
-                  className="input input-bordered"
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="email"
-                  name="email"
-                  className="input input-bordered"
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Photo Url</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Photo"
-                  name="photo"
-                  className="input input-bordered"
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  type="password"
-                  placeholder="password"
-                  name="password"
-                  className="input input-bordered"
-                />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
-              </div>
-              <div className="form-control mt-6">
-                <input
-                  className="btn btn-error text-white bg-[#f06d4f]"
-                  type="submit"
-                  value="Register"
-                />
-              </div>
-            </form>
-            <p className="mt-4 text-center">
-              Already have an account?{" "}
-              <Link to="/login" className="font-bold text-[#f06d4f]">
-                Login
-              </Link>
-            </p>
-          </div>
-          <SocialLogin></SocialLogin>
+    <div className="min-h-screen flex items-center justify-center">
+  <div className="flex flex-col lg:flex-row w-11/12 max-w-4xl shadow-lg border border-gray-200 rounded-lg overflow-hidden h-[600px]">
+    {/* Left Section */}
+        <div className="hidden lg:block lg:w-1/2 bg-cover bg-center" style={{ backgroundImage: "url('https://i.ibb.co/vsH7hFn/abacus-5787097.jpg')" }}></div>
+        {/* Right Section */}
+        <div className="w-full lg:w-1/2 p-10">
+          <h2 className="text-4xl font-bold text-[#f06d4f] text-center mb-4">Create Account</h2>
+          <p className="text-center text-gray-600 mb-8">
+            Join us and start your journey!
+          </p>
+          <form onSubmit={handleSignUp} className="space-y-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-600">Name</label>
+              <input
+                type="text"
+                name="name"
+                className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-600">Email</label>
+              <input
+                type="email"
+                name="email"
+                className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-600">Password</label>
+              <input
+                type="password"
+                name="password"
+                className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full py-3 bg-[#f06d4f] text-white font-semibold rounded-lg hover:bg-orange-600 transition duration-200"
+            >
+              Register
+            </button>
+          </form>
+          <p className="mt-4 text-center text-sm text-gray-600">
+            Already have an account?{" "}
+            <Link to="/login" className="font-semibold text-blue-500 hover:underline">
+              Login here
+            </Link>
+          </p>
         </div>
       </div>
     </div>

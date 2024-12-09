@@ -45,29 +45,29 @@ const router = createBrowserRouter([
             <ToyDetails></ToyDetails>
           </PrivateRout>
         ),
-        loader: () => fetch(`https://toys-zone-server-kappa.vercel.app/toys`),
+        loader: () => fetch(`http://localhost:5000/toys`),
       },
       {
         path: "/addtoy",
         element: (
-          <PrivateRout>
+          <>
             <AddToy></AddToy>
-          </PrivateRout>
+          </>
         ),
       },
       {
         path: "/mytoy",
         element: (
-          <PrivateRout>
+          <>
             <MyToy></MyToy>{" "}
-          </PrivateRout>
+          </>
         ),
       },
       {
         path: "/updateToy/:id",
         element: <UpdateToy></UpdateToy>,
         loader: ({ params }) =>
-          fetch(`https://toys-zone-server-kappa.vercel.app/toys/${params.id}`),
+          fetch(`http://localhost:5000/${params.id}`),
       },
     ],
   },

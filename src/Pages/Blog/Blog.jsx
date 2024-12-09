@@ -1,7 +1,8 @@
 const Blog = () => {
   return (
-    <div className="px-4 md:px-24 mx-auto">
-      <h1 className="text-5xl md:text-7xl text-[#f06d4f] font-bold my-8">
+    <div className=" mx-auto pt-16">
+     <div className="px-4 md:px-24">
+     <h1 className="text-5xl md:text-7xl text-[#f06d4f] font-bold my-8">
         Answer the following questions:
       </h1>
       <div>
@@ -110,6 +111,7 @@ const Blog = () => {
           </span>
         </p>
       </div>
+     </div>
     </div>
   );
 };

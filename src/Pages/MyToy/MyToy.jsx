@@ -6,15 +6,16 @@ const MyToy = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
   useEffect(() => {
-    fetch(`https://toys-zone-server-kappa.vercel.app/mytoy/${user?.email}`)
+    fetch(`http://localhost:5000/mytoy/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
       });
   }, [user]);
   return (
-    <div className="px-4 md:px-12 lg-px-24">
-      <h1 className="text-5xl font-semibold text-[#f06d4f] text-center my-8">
+    <div className="pt-20">
+      <div className="px-4 md:px-12 lg:px-24">
+      <h1 className="text-5xl font-bold uppercase text-center my-8">
         My Toys
       </h1>
 
@@ -34,16 +35,17 @@ const MyToy = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {
-                toys.map(toy=> <SingleMyToy 
-                    key={toy._id}
-                    toy={toy}
-                    toys={toys}
-                    setToys={setToys}
-                    ></SingleMyToy>)
-            }
+            {toys.map((toy) => (
+              <SingleMyToy
+                key={toy._id}
+                toy={toy}
+                toys={toys}
+                setToys={setToys}
+              ></SingleMyToy>
+            ))}
           </tbody>
         </table>
+      </div>
       </div>
     </div>
   );
